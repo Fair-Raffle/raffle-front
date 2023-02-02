@@ -1,11 +1,58 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import * as xlsx from "xlsx";
 import Attendee from "./types/Attendee";
 import uploadFile from "./utils/uploadFileToIPFS";
 import getFileAtIPFS from "./utils/getFileAtIPFS";
+import { useAppDispatch } from "./store";
+import { web3Actions } from "./store/reducers/web3";
+import { Contract, Provider } from "starknet";
+import { useAppSelector } from "./store";
+import { connect, disconnect, getStarknet } from "@argent/get-starknet";
+import abi from "./abi/fair_raffle_abi.json"
+import { CTC_ADDR } from "./constants/address";
 
 function App() {
+  const dispatch = useAppDispatch();
+  const didInit = useRef<boolean>(false);
+  const web3State = useAppSelector((state) => state.web3);
+
   const [raffleAttendees, setRaffleAttendees] = useState<Attendee[]>([]);
+
+  useEffect(() => {
+    if (!didInit.current) {
+      const provider = new Provider();
+      dispatch(web3Actions.setProvider(provider));
+      const contract = new Contract(abi, CTC_ADDR, provider);
+      dispatch(web3Actions.setContract(contract));
+      didInit.current = true;
+    }
+  }, [dispatch]);
+
+  const logState = () => {
+    console.log(web3State);
+  };
+
+  const connectWallet = async () => {
+    const starknet = await connect({showList: true, modalOptions: "dark"});
+
+    if (!starknet) {
+      throw Error(
+        "User rejected wallet selection or silent connect found nothing"
+      );
+    }
+    await starknet.enable();
+    dispatch(web3Actions.setStarknet(starknet));
+    if (starknet.isConnected) {
+      // eslint-disable-next-line
+      const ctcWithSigner = new Contract(abi, CTC_ADDR, starknet.account);
+    }
+  };
+
+  const disconnectWallet = async () => {
+    disconnect({clearLastWallet: true})
+    const starknet = getStarknet()
+    dispatch(web3Actions.setStarknet(starknet))
+  };
 
   const readUploadFile = (e: any) => {
     e.preventDefault();
@@ -18,9 +65,9 @@ function App() {
         const worksheet = workbook.Sheets[sheetName];
         const json: Attendee[] = xlsx.utils.sheet_to_json(worksheet);
         console.log(json);
-        const attendees = []
+        const attendees = [];
         for (let row of json) {
-          attendees.push(row as Attendee)
+          attendees.push(row as Attendee);
         }
         setRaffleAttendees(attendees);
       };
@@ -32,13 +79,14 @@ function App() {
     console.log(raffleAttendees);
     const res = await uploadFile("hikmo", raffleAttendees);
     const hash = res.data.IpfsHash;
-    console.log("hash: " + hash)
-  }
+    console.log("hash: " + hash);
+  };
 
   const viewRaffleAttendees = async () => {
-    const mockHash = "bafkreidwmgwerwo643audraprktfu6ffjm6f5ipblurotkhlg5o63yhzgu";
+    const mockHash =
+      "bafkreidwmgwerwo643audraprktfu6ffjm6f5ipblurotkhlg5o63yhzgu";
     await getFileAtIPFS(mockHash);
-  }
+  };
 
   return (
     <div>
@@ -53,6 +101,10 @@ function App() {
       </form>
       <button onClick={startRaffle}>Start Raffle</button>
       <button onClick={viewRaffleAttendees}>View json</button>
+      <button onClick={logState}>Log web3 state</button>
+      <button onClick={connectWallet}>Connect Wallet</button>
+      <button onClick={disconnectWallet}>Disconnect</button>
+      <h3>{web3State.account?.address ? `Wallet address: ${web3State.account.address}` : null}</h3>
     </div>
   );
 }
