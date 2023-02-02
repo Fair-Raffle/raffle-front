@@ -1,1 +1,1 @@
-export const CTC_ADDR = "";
+export const CTC_ADDR = "0x027f61623a2fa40594a2346e2e8fec7e8d6f53e3e52e2501679a5658589d80b1";

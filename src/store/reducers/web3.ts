@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { type IStarknetWindowObject } from "@argent/get-starknet/dist";
-import { Contract, Provider } from "starknet";
+import { type StarknetWindowObject } from "get-starknet";
+import { Contract, Provider, AccountInterface } from "starknet";
 
 export type Web3StateType = {
-  provider: Provider | null;
-  contract: Contract | null;
-  account: any;
+  provider: Provider | null | undefined;
+  contract: Contract | null | undefined;
+  account: AccountInterface | null | undefined;
   connected: boolean;
 };
 
@@ -20,25 +20,34 @@ export const web3Slice = createSlice({
   name: "web3",
   initialState,
   reducers: {
-    setProvider: (state, action: PayloadAction<any>) => {
+    setProvider: (state, action: PayloadAction<Provider>) => {
       return {
         ...state,
         provider: action.payload,
       };
     },
-    setStarknet: (state, action: PayloadAction<IStarknetWindowObject | undefined>) => {
-      if (action.payload === undefined) return {...state}
+    setStarknet: (
+      state,
+      action: PayloadAction<StarknetWindowObject | undefined>
+    ) => {
+      if (action.payload === undefined) return { ...state };
       return {
         ...state,
         connected: action.payload.isConnected,
         account: action.payload.account,
       };
     },
-    setContract: (state, action: PayloadAction<any>) => {
+    setContract: (state, action: PayloadAction<Contract>) => {
       return {
         ...state,
         contract: action.payload,
       };
+    },
+    setConnected: (state, action: PayloadAction<boolean>) => {
+      return {
+        ...state,
+        connected: action.payload
+      }
     },
   },
 });

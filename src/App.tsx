@@ -7,7 +7,7 @@ import { useAppDispatch } from "./store";
 import { web3Actions } from "./store/reducers/web3";
 import { Contract, Provider } from "starknet";
 import { useAppSelector } from "./store";
-import { connect, disconnect, getStarknet } from "@argent/get-starknet";
+import { connect, disconnect } from "get-starknet";
 import abi from "./abi/fair_raffle_abi.json"
 import { CTC_ADDR } from "./constants/address";
 
@@ -33,25 +33,20 @@ function App() {
   };
 
   const connectWallet = async () => {
-    const starknet = await connect({showList: true, modalOptions: "dark"});
-
-    if (!starknet) {
-      throw Error(
-        "User rejected wallet selection or silent connect found nothing"
-      );
-    }
-    await starknet.enable();
-    dispatch(web3Actions.setStarknet(starknet));
-    if (starknet.isConnected) {
-      // eslint-disable-next-line
-      const ctcWithSigner = new Contract(abi, CTC_ADDR, starknet.account);
+    const wallet = await connect({modalMode: "alwaysAsk"});
+    if (wallet) {
+      await wallet.enable({})
+      dispatch(web3Actions.setStarknet(wallet))
+      if (wallet.isConnected) {
+        const contract = new Contract(abi, CTC_ADDR, wallet.account)
+        dispatch(web3Actions.setContract(contract))
+      }
     }
   };
 
   const disconnectWallet = async () => {
-    disconnect({clearLastWallet: true})
-    const starknet = getStarknet()
-    dispatch(web3Actions.setStarknet(starknet))
+    await disconnect({clearLastWallet: true})
+    dispatch(web3Actions.setConnected(false))
   };
 
   const readUploadFile = (e: any) => {
@@ -104,7 +99,7 @@ function App() {
       <button onClick={logState}>Log web3 state</button>
       <button onClick={connectWallet}>Connect Wallet</button>
       <button onClick={disconnectWallet}>Disconnect</button>
-      <h3>{web3State.account?.address ? `Wallet address: ${web3State.account.address}` : null}</h3>
+      <h3>{web3State.account?.address && web3State.connected ? `Wallet address: ${web3State.account.address}` : null}</h3>
     </div>
   );
 }
