@@ -1,8 +1,10 @@
 import "./output.css";
 import Navbar from "./containers/Navbar";
 import Steps from "./containers/Steps";
-import { Raffles } from "./pages/Raffles";
-import {BrowserRouter, BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Raffles from "./pages/Raffles";
+import Raffle from "./pages/Raffle";
+
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Steps />} />
           <Route path="/raffles" element={<Raffles />} />
+          <Route path="/raffle/:id" element={<Raffle />} />
         </Routes>
       
       </BrowserRouter>

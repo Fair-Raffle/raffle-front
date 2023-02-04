@@ -14,7 +14,7 @@ export default function Steps() {
         </div>
         <div className="flex flex-row space-x-2">
           <Step step={steps.steps[0]} abled={true} />
-          <Step step={steps.steps[1]} abled={true} hover={true} />
+          <Step step={steps.steps[1]} abled={false} />
           <Step step={steps.steps[2]} abled={false} />
           <Step step={steps.steps[3]} abled={false} />
         </div>

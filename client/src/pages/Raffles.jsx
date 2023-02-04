@@ -1,4 +1,6 @@
-export function Raffles() {
+import { Link } from "react-router-dom";
+
+export default function Raffles() {
   return (
     <div className="flex flex-col space-y-16">
       <div className="flex flex-row justify-between space-x-16">
@@ -32,8 +34,8 @@ export function Raffles() {
         </div>
         {Array(13)
           .fill(0)
-          .map((_, i) => (
-            <div className="flex flex-row bg-raffle-item rounded-[5px] pl-8 py-2 pr-2 text-white">
+          .map((_, index) => (
+            <Link to={`/raffle/${index}`} className="flex flex-row bg-raffle-item rounded-[5px] pl-8 py-2 pr-2 text-white cursor-pointer">
               <span className="py-1 w-[10%]"> 213 </span>
               <span className="py-1 w-[25%]">
                 0x923912391293913912939123123
@@ -44,7 +46,7 @@ export function Raffles() {
               <span className="bg-[#4A5072] w-[20%] rounded-[4px] cursor-pointer px-2 py-1">
                 🏆 Click To See Results
               </span>
-            </div>
+            </Link>
           ))}
       </div>
     </div>
