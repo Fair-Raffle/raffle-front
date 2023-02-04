@@ -1,6 +1,5 @@
 import { raffles } from '../assets/texts';
 import { Link } from 'react-router-dom';
-
 export default function Collection() {
     return (
         <div className="flex flex-col space-y-4">

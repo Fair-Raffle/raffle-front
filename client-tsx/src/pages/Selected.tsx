@@ -58,7 +58,7 @@ export default function Raffles() {
                     })
                     .map((collection, index) => (
                         <Link
-                            to="/collection/index"
+                            to={`/collection/${index}`}
                             className="flex flex-col space-y-2"
                         >
                             <div

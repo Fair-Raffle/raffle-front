@@ -16,14 +16,14 @@ export default function Navbar() {
             <div className="fixed top-0 left-0 flex w-full h-full bg-black bg-opacity-50 z-50 ">
                 <div className="flex flex-col w-1/4 py-4 h-fit bg-raffle-holder border-[1px] border-[#70769D] shadow-step rounded-lg mx-auto my-auto justify-between space-y-2">
                     <div className="flex flex-row justify-between ">
-                        <span className="px-4 text-[24px] font-bebas">
+                        <span className="px-4 text-[24px] font-bourgeois font-bold">
                             CONNECT YOUR STARKNET WALLET
                         </span>
                         <span
                             onClick={() => {
                                 setShowConnectModal(false);
                             }}
-                            className="text-white px-4 h-fit my-auto w-fit hover:cursor-pointer"
+                            className="text-white px-4 h-fit my-auto w-fit hover:cursor-pointer font-bourgeois font-bold"
                         >
                             CLOSE
                         </span>
@@ -31,7 +31,7 @@ export default function Navbar() {
                     <span className="text-white text-[20px] px-4 pb-16"> to Start Any Fair Raffle</span>
                     {connectors.map((connector) => (
                         <button
-                            className="text-white w-[90%] mx-auto rounded-[4px] shadow-wallet border[#646b97] bg-[#2b3142] font-bourgeois font-[14px] mx-auto h-fit my-auto py-2 hover:cursor-pointer"
+                            className="text-white w-[90%] mx-auto rounded-[4px] shadow-wallet border[#646b97] bg-[#2b3142] font-bourgeois font-bold font-[14px] mx-auto h-fit my-auto py-2 hover:cursor-pointer"
                             onClick={() => connect(connector)}
                         >
                             {connector.id() === 'argentX'
@@ -78,7 +78,7 @@ export default function Navbar() {
                 {status === 'disconnected' && (
                     <Link
                         to={'/raffles'}
-                        className="text-white px-4 h-fit my-auto py-1 hover:cursor-pointer hover:text-[#6295FE]"
+                        className="text-white px-4 h-fit my-auto py-1 hover:cursor-pointer hover:text-[#6295FE] font-bourgeois font-bold"
                     >
                         SEARCH
                     </Link>
@@ -86,7 +86,7 @@ export default function Navbar() {
                 {status === 'connected' && (
                     <Link
                         to={'/'}
-                        className="text-white px-4 h-fit my-auto py-1 hover:cursor-pointer whitespace-nowrap hover:text-[#6295FE]"
+                        className="text-white px-4 h-fit my-auto py-1 hover:cursor-pointer whitespace-nowrap font-bourgeois font-bold hover:text-[#6295FE]"
                     >
                         START RAFFLE
                     </Link>
@@ -99,7 +99,7 @@ export default function Navbar() {
                             select ? 'bg-raffle-holder' : ' '
                         } relative w-full question py-4 left-0 right-0 top-0 bottom-0  my-auto right-[100%]`}
                     >
-                        <div className="flex items-center px-2 py-2 text-white cursor-pointer hover:text-[#6295FE]">
+                        <div className="flex items-center px-2 py-2 text-white font-bourgeois font-bold cursor-pointer hover:text-[#6295FE]">
                             RAFFLES
                             <button className="ml-auto">
                                 <svg
@@ -119,19 +119,19 @@ export default function Navbar() {
                         >
                             <Link
                                 to="/raffles"
-                                className="bg-raffle-holder hover:text-white px-2 py-2 top-[45%] leading-normal text-[#6C76B2] text-md whitespace-nowrap cursor-pointer"
+                                className="bg-raffle-holder font-bourgeois font-bold hover:text-white px-2 py-2 top-[45%] leading-normal text-[#6C76B2] text-md whitespace-nowrap cursor-pointer"
                             >
                                 PAST RAFFLES
                             </Link>
                             <Link
                                 to="/"
-                                className="bg-raffle-holder hover:text-white px-2 py-2 top-[50%] leading-normal text-[#6C76B2] text-md whitespace-nowrap cursor-pointer"
+                                className="bg-raffle-holder font-bourgeois font-bold hover:text-white px-2 py-2 top-[50%] leading-normal text-[#6C76B2] text-md whitespace-nowrap cursor-pointer"
                             >
                                 YOUR RAFFLES
                             </Link>
                             <Link
                                 to="/selected"
-                                className="bg-raffle-holder hover:text-white px-2 py-2 top-[100%] leading-normal text-[#6C76B2] text-md whitespace-nowrap cursor-pointer"
+                                className="bg-raffle-holder font-bourgeois font-bold hover:text-white px-2 py-2 top-[100%] leading-normal text-[#6C76B2] text-md whitespace-nowrap cursor-pointer"
                             >
                                 NFT RAFFLES
                             </Link>
@@ -141,7 +141,7 @@ export default function Navbar() {
                 {status === 'connected' && (
                     <Link
                         to="/create"
-                        className="text-white px-4 h-fit my-auto py-1 hover:cursor-pointer hover:text-[#6295FE]"
+                        className="text-white px-4 h-fit my-auto py-1 font-bourgeois font-bold hover:cursor-pointer hover:text-[#6295FE]"
                     >
                         PROFILE
                     </Link>
@@ -156,7 +156,7 @@ export default function Navbar() {
                 >
                     {status === 'connected' ? (
                         <span
-                            className="text-[#A5FF4C]"
+                            className="text-[#A5FF4C] font-bourgeois font-bold"
                             onMouseLeave={() => {
                                 setText(
                                     address?.substring(0, 6) +
@@ -170,7 +170,7 @@ export default function Navbar() {
                             {text}
                         </span>
                     ) : (
-                        <span>CONNECT WALLET</span>
+                        <span className='font-bourgeois font-bold'> CONNECT WALLET</span>
                     )}
                 </span>
             </div>

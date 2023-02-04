@@ -11,6 +11,7 @@ import Collection from './pages/Collection';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { StarknetConfig, InjectedConnector } from '@starknet-react/core';
+import Main from './pages/Main';
 
 const connectors = [
 	new InjectedConnector({ options: { id: 'braavos' } }),
@@ -24,7 +25,8 @@ function App() {
                 <BrowserRouter>
                     <Navbar />
                     <Routes>
-                        <Route path="/" element={<CreateRaffle />} />
+                        <Route path="/" element={<Main />} />
+                        <Route path="/create-raffle" element={<CreateRaffle />} />
                         <Route path="/raffles" element={<Raffles />} />
                         <Route path="/raffle/:id" element={<Raffle />} />
                         <Route path="/selected" element={<Selected />} />
