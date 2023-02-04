@@ -1,9 +1,21 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { raffles } from '../assets/texts';
 export default function RaffleStatus() {
-    const [finished, setFinished] = useState([true, false, false]);
+    const [finished, setFinished] = useState([false, false, false]);
     const raffle = raffles[0];
+
+    useEffect(() => {
+        setTimeout(() => {
+            setFinished([true, false, false]);
+        }, 1000);
+        setTimeout(() => {
+            setFinished([true, true, false]);
+        }, 2000);
+        setTimeout(() => {
+            setFinished([true, true, true]);
+        }, 3000);
+    }, []);
 
     return (
         <div className="flex flex-col space-y-16">
@@ -13,14 +25,10 @@ export default function RaffleStatus() {
                         RAFFLE TOOL FOR SELECTED COLLECTIONS
                     </span>
                     <span>
-                        Anyone can make fair raffles for early starkers via that
-                        page. Our raffle is totally on-chain, transparent &
-                        accountable. Just as suppose to be! Just enter the star
-                        numbers, then raffle tool will give you winner numbers
-                        and holders. 
-                        <div className='h-4'></div>
-                        Note: This page is optimized for Early
-                        Starkers NFTs, if you want to make raffle for
+                        Thanks to this specially designed system, selected
+                        collections' NFT holders can participate in exclusive
+                        giveaways. Enhance the value of NFT collections by
+                        offering fair raffles to holders.
                     </span>
                 </div>
             </div>
@@ -31,21 +39,22 @@ export default function RaffleStatus() {
                             RAFFLE STATUS
                         </span>
                     </div>
-                    <div className='flex-col px-2'>
-                        <div className="flex flex-col">
+                    <div className="flex flex-col px-2 h-full content-around">
+                        <div className="flex flex-col h-1/3">
                             <span>Your Raffle List Uploading</span>
                             <span className="text-[#6C76B2] text-[12px] w-2/3">
-                                Raffle just started. It is uploading to blockchain
+                                Raffle just started. It is uploading to
+                                blockchain
                             </span>
                             <div
                                 className={`${
                                     finished[0]
-                                        ? 'shadow-uploaded bg-uploaded'
-                                        : 'bg-black'
-                                }  py-1 mt-8`}
+                                        ? `shadow-uploaded bg-uploaded w-100`
+                                        : 'bg-black w-0 '
+                                } transition-all duration-1000 py-1 mt-8`}
                             />
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col h-1/3">
                             <span>Waiting For Random Number</span>
                             <span className="text-[#6C76B2] text-[12px] w-2/3">
                                 We are waiting for true random number from ****.
@@ -58,19 +67,23 @@ export default function RaffleStatus() {
                                 }  py-1 mt-8`}
                             />
                         </div>
-                        <div className="flex flex-col">
-                            <span className="px-2">Here is the Results!</span>
+                        <div className="flex flex-col h-1/3">
+                            <span> Here is the Results!</span>
                             <div
                                 className={`${
                                     finished[2]
                                         ? 'shadow-uploaded bg-uploaded'
                                         : 'bg-black'
-                                }  py-1 mt-32`}
+                                }  py-1 mt-8`}
                             />
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col w-3/5 space-y-8 bg-raflle-holder rounded-[2px] shadow-raffle-holder border-[1px] border-[#70769d] p-4">
+                <div
+                    className={`${
+                        finished[2] ? 'opacity-100' : 'opacity-20'
+                    } flex flex-col w-3/5 space-y-8 bg-raflle-holder rounded-[2px] shadow-raffle-holder border-[1px] border-[#70769d] p-4`}
+                >
                     <div className="flex shadow-step-head bg-step-head py-1">
                         <span className="text-[24px] ml-4 mr-auto mx-auto text-left font-bebas">
                             RAFFLE RESULT
@@ -86,7 +99,7 @@ export default function RaffleStatus() {
                                     #{raffle.raffleNum}
                                 </span>
                             </div>
-                            <div className='flex flex-col'>
+                            <div className="flex flex-col">
                                 <span className="text-[15px] text-[#6F80B0]">
                                     Raffle Name:
                                 </span>
@@ -94,7 +107,7 @@ export default function RaffleStatus() {
                                     {raffle.raffleName}
                                 </span>
                             </div>
-                            <div className='flex flex-col'>
+                            <div className="flex flex-col">
                                 <span className="text-[15px] text-[#6F80B0]">
                                     Scan Link
                                 </span>
@@ -102,7 +115,7 @@ export default function RaffleStatus() {
                                     {raffle.scanlink}
                                 </span>
                             </div>
-                            <div className='flex flex-col'>
+                            <div className="flex flex-col">
                                 <span className="text-[15px] text-[#6F80B0]">
                                     IPFS Link
                                 </span>
@@ -141,11 +154,11 @@ export default function RaffleStatus() {
                         </div>
                     </div>
                     <div className="flex flex-row w-3/5 space-x-8 mr-0 ml-auto w-full justify-between">
-                        <span className="border-[#A7ABBE] bg-[#272C41] py-2 border-2 rounded-[4px] text-center w-full text-white">
-                            Integrate Your Twitter
+                        <span className="border-[#A7ABBE] bg-[#272C41] py-2 border-2 rounded-[4px] text-center w-full text-white hover:cursor-pointer">
+                            Download
                         </span>
-                        <span className="border-[#A7ABBE] bg-[#272C41] py-2 border-2 rounded-[4px] text-center w-full text-white">
-                            Integrate Your Twitter
+                        <span className="border-[#A7ABBE] bg-[#272C41] py-2 border-2 rounded-[4px] text-center w-full text-white hover:cursor-pointer">
+                            Tweet it!
                         </span>
                     </div>
                 </div>

@@ -16,7 +16,7 @@ export default function Raffles() {
                         You can check out past raffles anytime via that page.
                         Just click to results.
                     </span>
-                    <span> Never trust, verify. </span>
+                    <span> Never trust, verify!😉 </span>
                 </div>
                 <div className="flex flex-col w-1/2 space-y-2">
                     <span className="font-bebas text-[24px]">
@@ -24,8 +24,7 @@ export default function Raffles() {
                         SEARCH A RAFFLES{' '}
                     </span>
                     <span>
-                        {' '}
-                        Search raffle via raffle maker address or name.{' '}
+                        Search a raffle via Public Address of “RaffleMaker” or “Name” of the raffle.
                     </span>
                     <button className="bg-[#2B3142] text-[#6F80B0] rounded-[13px] w-1/4 text-[12px] whitespace-pre-line mb-0 mt-auto px-4 py-1">
                         <input
@@ -58,9 +57,13 @@ export default function Raffles() {
                                 .includes(search.toLowerCase()) ||
                             raffle.raffleName
                                 .toLowerCase()
+                                .includes(search.toLowerCase()) ||
+                            raffle.starknetId
+                                .toLowerCase()
                                 .includes(search.toLowerCase())
                         ) {
                             return raffle;
+                            
                         }
                     }).map((raffle, index) => (
                         <Link

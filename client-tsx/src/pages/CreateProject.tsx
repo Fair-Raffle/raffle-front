@@ -13,8 +13,8 @@ export default function CreateProject() {
                         PROFILE SETUP
                     </span>
                     <span>
-                        You can check out past raffles anytime via that page.
-                        Just click to results. Never trust, verify.
+                        You can create your profile by filling out the
+                        information
                     </span>
                 </div>
             </div>
@@ -28,8 +28,11 @@ export default function CreateProject() {
                     <span className="border-[#A7ABBE] bg-[#272C41] py-2 border-2 rounded-[4px] text-center w-full text-white">
                         Integrate Your Starknet ID
                     </span>
-                    <span> Select Your Main Public Name: </span>
-                    <span>
+                    <span className="text-[18px]">
+                        {' '}
+                        Select Your Main Public Name:{' '}
+                    </span>
+                    <span className="text-[#6F80B0]">
                         In past raffles your selected id will be showed
                         according to your selection.
                     </span>
@@ -51,8 +54,11 @@ export default function CreateProject() {
                         />
                         <span className="my-auto ml-10">Twitter User Name</span>
                     </div>
-                    <span> Do you want to register your NFT Project? </span>
-                    <span>
+                    <span className="text-[18px]">
+                        {' '}
+                        Do you want to register your NFT Project?{' '}
+                    </span>
+                    <span className="text-[#6F80B0]">
                         If you list your NFT project it will be automaticaly
                         listed for anyone enable to make a raffle about it.
                     </span>
@@ -80,9 +86,12 @@ export default function CreateProject() {
                     <div className="flex flex-col space-y-2">
                         <span> Enter Your NFT Project Contract in Here </span>
                         <div className="flex flex-row space-x-2">
-                            <span className="bg-black text-[#6C76B2] py-2 pl-5 w-full rounded-lg text-left ">
-                                2000
-                            </span>
+                            <button className="bg-black text-[#6F80B0] rounded-lg py-2 w-full text-[15px] whitespace-pre-line mb-0 mt-auto py-1">
+                                <input
+                                    className="outline-0 ring-0 bg-black w-full pl-4 placeholder-[#6F80B0]"
+                                    placeholder="2000"
+                                />
+                            </button>
                             <span className="border-[#A7ABBE] bg-[#272C41] py-2 px-8 border-2 rounded-[8px] text-center text-white">
                                 Registered
                             </span>
@@ -93,34 +102,54 @@ export default function CreateProject() {
                             Enter Your Credentials (OPT, but Highly
                             Recommended):
                         </span>
-                        <span className="bg-black text-[#6C76B2] py-2 pl-5 w-full rounded-lg text-left ">
-                            Enter YOUR WEBSITE
-                        </span>
-                        <span className="bg-black text-[#6C76B2] py-2 pl-5 w-full rounded-lg text-left ">
-                            Enter YOUR TWITTER
-                        </span>
-                        <span className="bg-black text-[#6C76B2] py-2 pl-5 w-full rounded-lg text-left ">
-                            ENTER YOUR DISCORD LINK
-                        </span>
+                        <button className="bg-black text-[#6F80B0] rounded-lg py-2 w-full text-[15px] whitespace-pre-line mb-0 mt-auto py-1">
+                            <input
+                                className="outline-0 ring-0 bg-black w-full pl-4 placeholder-[#6F80B0]"
+                                placeholder="Enter YOUR WEBSITE"
+                            />
+                        </button>
+                        <button className="bg-black text-[#6F80B0] rounded-lg py-2 w-full text-[15px] whitespace-pre-line mb-0 mt-auto py-1">
+                            <input
+                                className="outline-0 ring-0 bg-black w-full pl-4 placeholder-[#6F80B0]"
+                                placeholder="Enter YOUR TWITTER"
+                            />
+                        </button>
+                        <button className="bg-black text-[#6F80B0] rounded-lg py-2 w-full text-[15px] whitespace-pre-line mb-0 mt-auto py-1">
+                            <input
+                                className="outline-0 ring-0 bg-black w-full pl-4 placeholder-[#6F80B0]"
+                                placeholder="Enter YOUR DISCORD LINK"
+                            />
+                        </button>
                     </div>
-                    <span className="border-[#A7ABBE] w-[70%] bg-[#272C41] py-2 px-8 w-2/3 border-2 mt-[5rem] rounded-[8px] text-center text-white">
-                        Upload Head Image 400 x 400
+                    <span className="border-[#A7ABBE] w-[70%] bg-[#272C41] py-2 px-8 w-2/3 border-2 mt-[5rem] rounded-[8px] text-center text-white cursor-pointer">
+                        <label className="cursor-pointer" htmlFor="files">
+                            Upload Head Image 400 x 400
+                        </label>
+                        <input
+                            id="files"
+                            className="hidden"
+                            type="file"
+                            placeholder="Upload Head Image 400 x 400"
+                        />
                     </span>
                     <div className="flex flex-col space-y-4">
-                        <div className='flex flex-row space-x-2'>
-                            <span className="bg-black text-[#6C76B2] py-2 pl-5 w-full rounded-lg text-left ">
-                                ENTER YOUR STARKNET WALLET
-                            </span>
-                            <span className="border-[#A7ABBE] bg-[#272C41] py-2 px-8 border-2 rounded-[8px] text-center text-white">
+                        <div className="flex flex-row space-x-2">
+                            <button className="bg-black text-[#6F80B0] rounded-lg py-2 w-full text-[15px] whitespace-pre-line mb-0 mt-auto py-1">
+                                <input
+                                    className="outline-0 ring-0 bg-black w-full pl-4 placeholder-[#6F80B0]"
+                                    placeholder="Enter your Starknet wallet address"
+                                />
+                            </button>
+                            <span className="border-[#A7ABBE] bg-[#272C41] py-2 px-8 border-2 rounded-[8px] text-center text-white cursor-pointer">
                                 Change
                             </span>
-                            <span className="border-[#A7ABBE] bg-[#272C41] py-2 px-8 border-2 rounded-[8px] text-center text-white">
+                            <span className="border-[#A7ABBE] bg-[#272C41] py-2 px-8 border-2 rounded-[8px] text-center text-white cursor-pointer">
                                 Remove
                             </span>
                         </div>
-                        <span className="border-[#A7ABBE] bg-[#272C41] py-2 px-8 border-2 rounded-[8px] text-center text-white">
-                                Link My Project
-                            </span>
+                        <span className="border-[#A7ABBE] bg-[#272C41] py-2 px-8 border-2 rounded-[8px] text-center text-white cursor-pointer">
+                            Add my Collection
+                        </span>
                     </div>
                 </div>
             </div>

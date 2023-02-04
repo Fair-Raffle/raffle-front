@@ -62,10 +62,10 @@ export default function Collection() {
                 </div>
                 <div className="flex flex-col space-y-2 w-2/5 bg-raflle-holder rounded-[2px] shadow-raffle-holder border-[1px] border-[#70769d] p-4">
                     <span className="text-[14px]">
-                        Enter How Many Users You Want to Airdrop
+                        Enter How Many Users You Want to Select
                     </span>
                     <span className="text-[#6F80B0]">
-                        Please Enter a Number Among 1 - 1234
+                        Please Enter a Number Among 1-9999
                     </span>
                     <button className="bg-black text-[#6F80B0] rounded-[13px] w-1/2 text-[12px] whitespace-pre-line mb-0 mt-auto px-16 py-1">
                         <input
@@ -74,10 +74,10 @@ export default function Collection() {
                         />
                     </button>
                     <span className="text-[14px]">
-                        Enter How Many Users You Want to Airdrop
+                        [Optional] Name Your Raffle
                     </span>
                     <span className="text-[#6F80B0]">
-                        Please Enter a Number Among 1 - 1234
+                        User Can Easily Find Your Raffle via Search
                     </span>
                     <button className="bg-black text-[#6F80B0] rounded-[13px] w-1/2 text-[12px] whitespace-pre-line mb-0 mt-auto px-16 py-1">
                         <input
@@ -93,7 +93,7 @@ export default function Collection() {
                     </div>
                     <button className="bg-[#F2F5FD] text-[#000000] w-1/2 rounded-[13px] text-[12px] whitespace-pre-line  mb-0 mt-auto px-4 py-1">
                         <span className="text-[#1C243B] text-[16px] whitespace-pre-line w-2/3">
-                            Give Me The Stars!
+                            Give Me The Results!
                         </span>
                     </button>
                 </div>

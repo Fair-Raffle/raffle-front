@@ -11,11 +11,6 @@ export default function Raffle() {
             <div className="flex flex-row justify-between space-x-16 mb-6 opacity-85 ">
                 <div className="flex flex-col w-1/2">
                     <span className="text-[24px] font-bebas">PAST RAFFLES</span>
-                    <span>
-                        You can check out past raffles anytime via that page.
-                        Just click to results.
-                    </span>
-                    <span> Never trust, verify. </span>
                 </div>
             </div>
             <div className="flex flex-col space-y-2 bg-raflle-holder rounded-[2px] shadow-raffle-holder border-[1px] border-[#70769d] p-4 pb-5">
@@ -68,7 +63,7 @@ export default function Raffle() {
                         <div>
                             <button className="text-[#000000] bg-gradient-to-b border-2 from-[#FFFFFF] to-[#BDC6D1] rounded-lg text-[12px] whitespace-pre-line  mb-0 mt-auto px-4 py-2 w-[313px] mt-16">
                                 <span className="text-[#1C243B] text-xl font-bold whitespace-pre-line ">
-                                    Give Me The Stars!
+                                    Give Me The Results!
                                 </span>
                             </button>
                         </div>
