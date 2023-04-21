@@ -1,0 +1,80 @@
+.past_raffles {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 1);
+  padding-bottom: 2rem;
+}
+
+.past_raffles > thead {
+  font-family: var(--bourgeois);
+  color: rgba(64, 53, 74, 1);
+  font-family: "BourgeoisRounded-Bold";
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.past_raffles > tbody {
+  color: rgba(53, 53, 74, 1);
+  font-family: var(--bourgeois);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.past_raffles > tbody > tr > td {
+  padding: 1rem 0rem;
+}
+
+.past_raffles > tbody > tr {
+  border-radius: 5px;
+  background-color: rgba(247, 247, 247, 1);
+}
+
+.past_raffles > tbody > tr > td:last-child {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: fit-content;
+  color: rgba(53, 53, 74, 1);
+  border-radius: 4px;
+}
+
+.past_raffles > tbody > tr > td > a {
+  color: rgba(53, 53, 74, 1);
+  border-radius: 4px;
+  /* background-color: rgba(255, 255, 255, 1); */
+}
+
+.past_raffles > tbody > tr:hover {
+  border-radius: 5px;
+  background-color: rgba(180, 204, 219, 0.319056);
+}
+
+.result_button {
+  border-radius: 4px;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 0.5rem 1rem;
+}
+
+.result_button:hover {
+  border-radius: 4px;
+  box-shadow: 0px 2px 11px 3px rgba(221, 222, 231, 0.956867);
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.result_button:active {
+  border-radius: 4px;
+  box-shadow: 0px 1px 5px 1px rgba(155, 158, 168, 0.5) inset;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+@media screen and (max-width: 768px) {
+  .past_raffles > tbody > tr > td {
+    padding: 0.4rem 0rem;
+  }
+}

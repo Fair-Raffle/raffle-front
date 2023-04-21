@@ -1,0 +1,115 @@
+.wallet_modal {
+  background-color: #000000cc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+}
+
+.wallet_modal_content {
+  position: absolute;
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  box-shadow: 0px 2px 11px rgba(216, 220, 239, 0.956867);
+  background-color: rgba(255, 255, 255, 1);
+  width: 50%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.4rem;
+  z-index: 999999;
+}
+.wallet_modal_content_body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+  justify-content: space-between;
+  flex: 1;
+}
+.wallet_modal_content_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.wallet_modal_content_body_description {
+  opacity: 1;
+  color: rgba(108, 118, 178, 1);
+  font-family: "Barlow-Medium";
+  font-size: 11px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0px;
+  text-align: left;
+  line-height: 1.5rem;
+}
+.wallet_modal_content_header_close {
+  opacity: 1;
+  color: rgba(48, 40, 40, 0.85);
+  font-family: var(--bebas);
+  font-size: 24px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.wallet_modal_content_header_title {
+  opacity: 1;
+  color: rgba(48, 40, 40, 0.85);
+  font-family: var(--bebas);
+  font-size: 24px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.wallet_modal_content_body_wallet {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.wallet_modal_content_body_wallet_button {
+  padding: 1rem 0rem;
+  opacity: 1;
+  color: rgba(64, 53, 74, 1);
+  font-family: "Barlow-Bold";
+  font-size: 13px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+}
+
+.wallet_modal_content_body_wallet_button:first-of-type {
+  border-radius: 4px;
+  box-shadow: 0px 4px 37px 3px rgba(189, 255, 178, 1) inset,
+    0px 2px 3px 1px rgba(115, 150, 110, 0.5);
+  opacity: 1;
+  background-image: radial-gradient(
+    rgba(196, 239, 154, 1) 0%,
+    rgba(255, 237, 151, 1) 100%
+  );
+}
+
+.wallet_modal_content_body_wallet_button:last-of-type {
+  border-radius: 4px;
+  box-shadow: 0px 1px 4px 2px rgba(255, 255, 255, 0.741559) inset,
+    0px 2px 3px 1px rgba(224, 227, 253, 0.956867);
+  opacity: 1;
+  background-image: radial-gradient(
+    rgba(238, 240, 250, 1) 0%,
+    rgba(252, 252, 249, 1) 100%
+  );
+}
